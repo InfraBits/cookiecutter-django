@@ -1,0 +1,7 @@
+{
+  "org_name": "infrabits",
+  "project_name": "new_project",
+  "prod_user": "{{ cookiecutter.project_name }}.{{ cookiecutter.org_name }}.nl",
+  "prod_uid": "",
+  "celery_worker": "y"
+}

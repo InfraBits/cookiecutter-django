@@ -1,0 +1,41 @@
+[Unit]
+Description={{ cookiecutter.prod_user }} gunicorn worker
+After=docker.service
+Requires=docker.service
+
+[Service]
+EnvironmentFile=/etc/systemd/{{ cookiecutter.prod_user }}.conf
+TimeoutStartSec=0
+Restart=always
+
+# Get the latest image
+ExecStartPre=/usr/bin/docker pull ghcr.io/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_RELEASE}
+
+# Stop the previous instance
+ExecStartPre=-/usr/bin/docker stop {{ cookiecutter.prod_user }}_gunicorn
+ExecStartPre=-/usr/bin/docker rm {{ cookiecutter.prod_user }}_gunicorn
+
+# Database migrations
+ExecStartPre=/usr/bin/docker run --init --rm --name {{ cookiecutter.prod_user }}_gunicorn \
+    -v /srv/{{ cookiecutter.prod_user }}/config/app/config.yaml:/opt/{{ cookiecutter.project_name }}/config.yaml \
+    --user {{ cookiecutter.prod_uid }}:{{ cookiecutter.prod_uid }} \
+    ghcr.io/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_RELEASE} \
+    migrate
+
+# Make the socket dir
+ExecStartPre=/bin/mkdir -p /run/{{ cookiecutter.prod_user }}
+ExecStartPre=/bin/chown {{ cookiecutter.prod_user }}:{{ cookiecutter.prod_user }} /run/{{ cookiecutter.prod_user }}
+
+# Run the worker
+ExecStart=/usr/bin/docker run --init --rm --name {{ cookiecutter.prod_user }}_gunicorn \
+    -v /srv/{{ cookiecutter.prod_user }}/config/app/config.yaml:/opt/{{ cookiecutter.project_name }}/config.yaml \
+    -v /run/{{ cookiecutter.prod_user }}:/run/{{ cookiecutter.prod_user }} \
+    --user {{ cookiecutter.prod_uid }}:{{ cookiecutter.prod_uid }} \
+    --entrypoint gunicorn \
+    ghcr.io/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_RELEASE} \
+    --workers=4 \
+    --bind=unix:/run/{{ cookiecutter.prod_user }}/gunicorn.socket \
+    {{ cookiecutter.project_name }}.wsgi:application
+
+[Install]
+WantedBy=default.target
