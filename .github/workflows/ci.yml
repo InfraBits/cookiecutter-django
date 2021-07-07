@@ -1,0 +1,19 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  cookiecutter:
+    runs-on: ubuntu-20.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with: {python-version: '3.9'}
+    - name: Install dependencies
+      run: pip install --upgrade cookiecutter
+    - name: Generate project
+      run: cookiecutter $(pwd) --no-input --output-dir ci_test project_name=ci_test
+    - name: Check project
+      run: |
+        cd ci_test/ci_test
+        pip install --upgrade -r requirements.txt -r requirements-dev.txt
+        ./manage.py check

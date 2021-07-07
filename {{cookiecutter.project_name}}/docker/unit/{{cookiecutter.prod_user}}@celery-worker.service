@@ -1,0 +1,23 @@
+[Unit]
+Description={{ cookiecutter.prod_user }} celery worker
+PartOf={{ cookiecutter.prod_user }}@gunicorn.service
+
+[Service]
+EnvironmentFile=/etc/systemd/{{ cookiecutter.prod_user }}.conf
+TimeoutStartSec=0
+Restart=always
+
+# Stop the previous instance
+ExecStartPre=-/usr/bin/docker stop {{ cookiecutter.prod_user }}_celery_worker
+ExecStartPre=-/usr/bin/docker rm {{ cookiecutter.prod_user }}_celery_worker
+
+# Start the worker - image is handled in the gunicorn unit
+ExecStart=/usr/bin/docker run --init --rm --name {{ cookiecutter.prod_user }}_celery_worker \
+    -v /srv/{{ cookiecutter.prod_user }}/config/app/config.yaml:/opt/{{ cookiecutter.project_name }}/config.yaml \
+    --user {{ cookiecutter.prod_uid }}:{{ cookiecutter.prod_uid }} \
+    --entrypoint celery \
+    ghcr.io/${DOCKER_IMAGE_NAME}:${DOCKER_IMAGE_RELEASE} \
+    -A {{ cookiecutter.project_name }}.celery:app worker -B -l INFO
+
+[Install]
+WantedBy=default.target
