@@ -92,6 +92,7 @@ def _reload_systemd(c):
             continue
         print(f'[{c.host}] restarting {unit.name}')
         c.sudo(f'systemctl reload-or-restart {unit.name}', warn=True)
+        c.sudo(f'systemctl enable {unit.name}', warn=True)
 
 
 def _deploy_release(c, target_release):
