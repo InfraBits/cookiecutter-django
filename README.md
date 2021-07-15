@@ -2,7 +2,7 @@ Django cookiecutter template
 ============================
 
 This template provides a base Django project structure,
-along with configured tests & dependancy updates.
+along with configured tests & dependency updates.
 
 Configuration options
 ---------------------
