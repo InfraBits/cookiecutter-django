@@ -6,8 +6,8 @@ Project template created with `infrabits/cookiecutter-django`.
 Environment configuration
 -------------------------
 
-The core environment configuration is contained within `infrabits/ansible`,
-but effectivly can be replaced with any system supporting `systemd` & `docker`.
+The core environment configuration is within `infrabits/ansible`,
+but effectively can be replaced with any system supporting `systemd` & `podman`.
 
 Deployment
 ----------
@@ -23,7 +23,7 @@ All local development can be done within a virtual env;
 * `source ve/bin/actiate`
 * `pip install --upgrade -r requirements.txt -r requirements-dev.txt`
 
-Dependancies
+Dependencies
 ------------
 
 All requirements should be frozen and automatically updated via `pyup`.
