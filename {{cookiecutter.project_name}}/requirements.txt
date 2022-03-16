@@ -1,13 +1,11 @@
-Django==3.2.5
+Django==4.0.3
 django-csp==3.7
 django-probes==1.6.0
-mysql-connector-python==8.0.25
-mysqlclient==2.0.3
-pyyaml==5.4.1
-django-sendgrid-v5==0.9.1
-whitenoise[brotli]==5.2.0
-{%- if cookiecutter.celery_worker == 'y' %}
-celery[redis]==5.1.2
-django-celery-results==2.2.0
+mysql-connector-python==8.0.28
+mysqlclient==2.1.0
+pyyaml==6.0
+django-sendgrid-v5==1.2.0
+whitenoise==6.0.0
+celery==5.2.3
+django-celery-results==2.3.0
 django-celery-beat==2.2.1
-{%- endif %}
