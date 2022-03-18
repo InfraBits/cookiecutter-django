@@ -1,8 +1,0 @@
-update: all
-pin: True
-close_prs: True
-search: False
-requirements:
-  - '{{ cookiecutter.project_name }}/requirements.txt'
-  - '{{ cookiecutter.project_name }}/requirements-dev.txt'
-  - '{{ cookiecutter.project_name }}/requirements-prod.txt'

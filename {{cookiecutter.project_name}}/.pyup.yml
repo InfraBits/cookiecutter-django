@@ -1,8 +1,0 @@
-update: all
-pin: True
-close_prs: True
-search: False
-requirements:
-  - 'requirements.txt'
-  - 'requirements-dev.txt'
-  - 'requirements-prod.txt'
