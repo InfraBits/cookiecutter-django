@@ -1,4 +1,4 @@
-fabric2==2.6.0
+fabric2==2.7.0
 patchwork==1.0.1
 django-debug-toolbar==3.2.4
 tox==3.24.5
@@ -6,6 +6,6 @@ pytest==7.1.1
 pylama==8.3.8
 requests==2.27.1
 mypy==0.942
-django-stubs==1.9.0
+django-stubs==1.10.0
 types-PyYAML==6.0.5
 celery-types==0.12.0
