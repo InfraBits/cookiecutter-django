@@ -2,7 +2,7 @@ Django==4.0.5
 django-csp==3.7
 django-probes==1.6.0
 mysql-connector-python==8.0.29
-mysqlclient==2.1.0
+mysqlclient==2.1.1
 pyyaml==6.0
 django-sendgrid-v5==1.2.0
 whitenoise==6.2.0
