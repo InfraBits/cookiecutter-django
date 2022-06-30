@@ -7,5 +7,5 @@ pyyaml==6.0
 django-sendgrid-v5==1.2.0
 whitenoise==6.2.0
 celery==5.2.7
-django-celery-results==2.3.1
+django-celery-results==2.4.0
 git+https://github.com/celery/django-celery-beat.git@v2.3.0#egg=django-celery-beat # pending new release: https://github.com/celery/django-celery-beat/issues/465
