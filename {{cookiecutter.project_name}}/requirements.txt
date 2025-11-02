@@ -6,6 +6,6 @@ mysqlclient==2.1.1
 pyyaml==6.0.3
 django-sendgrid-v5==1.2.1
 whitenoise==6.2.0
-celery==5.2.7
+celery==5.5.3
 django-celery-results==2.4.0
 git+https://github.com/celery/django-celery-beat.git@v2.4.0#egg=django-celery-beat # pending new release: https://github.com/celery/django-celery-beat/issues/465
