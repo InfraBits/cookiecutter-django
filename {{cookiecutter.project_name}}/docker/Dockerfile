@@ -1,4 +1,4 @@
-FROM python:3.9-alpine
+FROM python:3.14-alpine
 
 COPY . /opt/{{ cookiecutter.project_name }}
 WORKDIR /opt/{{ cookiecutter.project_name }}
