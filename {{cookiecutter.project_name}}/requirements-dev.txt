@@ -6,6 +6,6 @@ pytest==7.2.0
 pylama==8.4.1
 requests==2.32.5
 mypy==0.991
-django-stubs==1.13.1
+django-stubs==1.16.0
 types-PyYAML==6.0.12.20250915
 celery-types==0.23.0
