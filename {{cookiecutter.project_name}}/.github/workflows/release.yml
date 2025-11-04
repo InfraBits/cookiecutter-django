@@ -24,7 +24,7 @@ jobs:
     steps:
     - name: Authenticate with ghcr
       run: echo '${{ "{{ secrets.GITHUB_TOKEN }}" }}' | docker login ghcr.io -u ${{ "{{ github.repository_owner }}" }} --password-stdin
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v5
     - name: Build container
       run: docker build -t ghcr.io/${GITHUB_REPOSITORY,,}:${GITHUB_REF#refs/tags/} -f docker/Dockerfile .
     - name: Publish container
