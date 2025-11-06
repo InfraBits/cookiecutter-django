@@ -4,7 +4,7 @@ permissions:
   contents: read
 jobs:
   pytest:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v5
     - name: Set up Python 3.x
@@ -15,7 +15,7 @@ jobs:
     - name: Run pytest
       run: tox -e pytest
   pylama:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v5
     - name: Set up Python 3.x
@@ -26,7 +26,7 @@ jobs:
     - name: Run pylama
       run: tox -e pylama
   mypy:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     steps:
     - uses: actions/checkout@v5
     - name: Set up Python 3.x
