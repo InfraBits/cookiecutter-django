@@ -1,6 +1,6 @@
 Django==5.2.8
 django-csp==4.0
-django-probes==1.7.0
+django-probes==1.8.0
 mysql-connector-python==9.5.0
 mysqlclient==2.2.7
 pyyaml==6.0.3
