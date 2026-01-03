@@ -1,7 +1,7 @@
 fabric2==2.7.1
 patchwork==1.0.1
 django-debug-toolbar==6.1.0
-tox==4.32.0
+tox==4.33.0
 pytest==9.0.2
 pylama==8.4.1
 requests==2.32.5
