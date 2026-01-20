@@ -1,6 +1,6 @@
 fabric2==2.7.1
 patchwork==1.0.1
-django-debug-toolbar==6.1.0
+django-debug-toolbar==6.2.0
 tox==4.34.1
 pytest==9.0.2
 pylama==8.4.1
