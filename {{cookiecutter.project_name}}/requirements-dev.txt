@@ -1,4 +1,4 @@
-fabric2==2.7.1
+fabric2==3.2.2
 patchwork==1.0.1
 django-debug-toolbar==6.2.0
 tox==4.34.1
