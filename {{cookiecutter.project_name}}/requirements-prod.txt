@@ -1,1 +1,1 @@
-gunicorn==25.0.0
+gunicorn==25.0.1
