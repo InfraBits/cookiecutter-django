@@ -4,7 +4,7 @@ django-debug-toolbar==6.2.0
 tox==4.51.0
 pytest==9.0.2
 pylama==8.4.1
-requests==2.33.0
+requests==2.33.1
 mypy==1.19.1
 django-stubs==6.0.1
 types-PyYAML==6.0.12.20250915
