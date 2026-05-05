@@ -1,4 +1,4 @@
-Django==6.0.4
+Django==6.0.5
 django-csp==4.0
 django-probes==1.8.0
 mysql-connector-python==9.7.0
